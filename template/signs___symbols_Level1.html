@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signs And Symbols Level1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    .placeholder {
+      background-color: #ffffff;
+      height: 500px;
+      width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .placeholder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      filter: saturate(300%);
+      cursor: pointer;
+    }
+
+    button {
+      background: linear-gradient(#77d2ff, #ee9de7);
+      border-radius: 5px;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .radio-buttons {
+      position: absolute;
+      bottom: 650px;
+      left: 150px;
+    }
+
+    /* Styling for radio buttons */
+    input[type="radio"] {
+      /* Hide the default radio button */
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      /* Add custom styles */
+      display: inline-block;
+      position: relative;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border: 2px solid #333;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    /* Styling for the checked state */
+    input[type="radio"]:checked::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    /* Styling for the hover state */
+    input[type="radio"]:hover {
+      border-color: #555;
+    }
+
+    /* Styling for the focus state */
+    input[type="radio"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  <body>
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-0 translate-middle">
+        <img
+          id="back"
+          src="../static/back.png"
+          onclick="location.href='/levels/SignsSymbols'"
+          style="
+            width: 80px;
+            height: 80px;
+            margin-top: 42px;
+            margin-left: 180px;
+            cursor: pointer;
+          "
+        />
+        <img
+          id="home"
+          src="../static/home.png"
+          onclick="location.href='/'"
+          style="width: 85px; height: 85px; margin-top: 38px; cursor: pointer"
+        />
+      </div>
+    </div>
+
+    <div class="container text-center my-4">
+      <div class="row">
+        <h1 id="name" style="font-size: 55px; color: rgb(22, 102, 40)">
+          Red Signal - Stop
+        </h1>
+        <div class="placeholder d-flex justify-content-center my-4 mx-auto">
+          <audio
+            id="sound1"
+            src="../static/Audios/signs_and_symbols/stop.mp3"
+          ></audio>
+          <img
+            id="imgv"
+            src="../static/SIGNS___SYMBOLS/RedSignal.png"
+            alt="Example Image"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- right sidebar column -->
+          <button class="btn btn-primary btn-lg" id="prev" style="color: black">
+            PREV
+          </button>
+        </div>
+        <div class="col-md-6">
+          <!-- right sidebar column -->
+          <button class="btn btn-primary btn-lg" id="next" style="color: black">
+            NEXT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="radio-buttons">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="englishRadio"
+            value="english"
+          />
+          <label class="form-check-label" for="englishRadio">English</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="marathiRadio"
+            value="marathi"
+          />
+          <label class="form-check-label" for="marathiRadio">Marathi</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"></script> -->
+    <script>
+      const gameData = [
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/RedSignal.png",
+          options: [
+            "Recycle",
+            "Electrical Hazard",
+            "Red Signal - Stop",
+            "Danger",
+          ],
+          correct: "Red Signal - Stop",
+          Playaudio: "../static/Audios/signs_and_symbols/stop.mp3",
+          maraoptions: [
+            "रिसायकल",
+            "विद्युत धोका",
+            "लाल सिग्नल - थांबा",
+            "धोका",
+          ],
+          correctm: "लाल सिग्नल - थांबा",
+          maraoaudio: "../static/Audios/signs_and_symbols in marathi/थांबा.mp3",
+        },
+
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/YellowSignal.png",
+          options: [
+            "Handwashing",
+            "Yellow Signal - slow down and wait",
+            "First Aid",
+            "This task is prohibited",
+          ],
+          correct: "Yellow Signal - slow down and wait",
+          Playaudio:
+            "../static/Audios/signs_and_symbols/slow down and wait.mp3",
+          maraoptions: [
+            "हाथ धुणे",
+            "पिवळा सिग्नल - वेग कमी करा आणि प्रतीक्षा करा",
+            "प्रथमोपचार",
+            "हे कार्य प्रतिबंधित आहे",
+          ],
+          correctm: "पिवळा सिग्नल - वेग कमी करा आणि प्रतीक्षा करा",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/वेग कमी करा आणि प्रतीक्षा करा.mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/GreenSignal.png",
+          options: ["First Aid", "Recycle", "Washroom", "Green Signal - Go"],
+          correct: "Green Signal - Go",
+          Playaudio: "../static/Audios/signs_and_symbols/go.mp3",
+          maraoptions: [
+            "प्रथमोपचार",
+            "रिसायकल",
+            "स्वच्छतागृह",
+            "हिरवा सिग्नल - जा",
+          ],
+          correctm: "हिरवा सिग्नल - जा",
+          maraoaudio: "../static/Audios/signs_and_symbols in marathi/जा.mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/handwashing.png",
+          options: [
+            "Electrical Hazard",
+            "Danger",
+            "Handwashing",
+            "Red Signal - Stop",
+          ],
+          correct: "Handwashing",
+          Playaudio: "../static/Audios/signs_and_symbols/handwashing.mp3",
+          maraoptions: [
+            "विद्युत धोका",
+            "धोका",
+            "हाथ धुणे",
+            "लाल सिग्नल - थांबा",
+          ],
+          correctm: "हाथ धुणे",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/hath dune.mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/no.jpg",
+          options: [
+            "Handwashing",
+            "Yellow Signal - slow down and wait",
+            "First Aid",
+            "This task is prohibited",
+          ],
+          correct: "This task is prohibited",
+          Playaudio:
+            "../static/Audios/signs_and_symbols/this task is prohibited.mp3",
+          maraoptions: [
+            "हाथ धुणे",
+            "पिवळा सिग्नल - वेग कमी करा आणि प्रतीक्षा करा",
+            "प्रथमोपचार",
+            "हे कार्य प्रतिबंधित आहे",
+          ],
+          correctm: "हे कार्य प्रतिबंधित आहे",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/हे कार्य प्रतिबंधित आहे.mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/washroom.png",
+          options: ["First Aid", "Recycle", "Washroom", "Green Signal - Go"],
+          correct: "Washroom",
+          Playaudio: "../static/Audios/signs_and_symbols/washroom.mp3",
+          maraoptions: [
+            "प्रथमोपचार",
+            "रिसायकल",
+            "स्वच्छतागृह",
+            "हिरवा सिग्नल - जा",
+          ],
+          correctm: "स्वच्छतागृह",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/swatchtafrah (washroom).mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/electrical_hazard.png",
+          options: [
+            "Recycle",
+            "Electrical Hazard",
+            "Red Signal - Stop",
+            "Danger",
+          ],
+          correct: "Electrical Hazard",
+          Playaudio: "../static/Audios/signs_and_symbols/electrical_hazard.mp3",
+          maraoptions: [
+            "रिसायकल",
+            "विद्युत धोका",
+            "लाल सिग्नल - थांबा",
+            "धोका",
+          ],
+          correctm: "विद्युत धोका",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/vidhyut doka (electrical hazard).mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/danger.jpg",
+          options: [
+            "Electrical Hazard",
+            "Danger",
+            "Handwashing",
+            "Red Signal - Stop",
+          ],
+          correct: "Danger",
+          Playaudio: "../static/Audios/signs_and_symbols/danger.mp3",
+          maraoptions: [
+            "विद्युत धोका",
+            "धोका",
+            "हाथ धुणे",
+            "लाल सिग्नल - थांबा",
+          ],
+          correctm: "धोका",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/धोका(danger).mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/first_aid.png",
+          options: [
+            "Handwashing",
+            "Yellow Signal - slow down and wait",
+            "First Aid",
+            "This task is prohibited",
+          ],
+          correct: "First Aid",
+          Playaudio: "../static/Audios/signs_and_symbols/first_aid.mp3",
+          maraoptions: [
+            "हाथ धुणे",
+            "पिवळा सिग्नल - वेग कमी करा आणि प्रतीक्षा करा",
+            "प्रथमोपचार",
+            "हे कार्य प्रतिबंधित आहे",
+          ],
+          correctm: "प्रथमोपचार",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/प्रथमोपचार(first aid).mp3",
+        },
+        {
+          imageUrl: "../static/SIGNS___SYMBOLS/recycle.jpg",
+          options: [
+            "Recycle",
+            "Electrical Hazard",
+            "Red Signal - Stop",
+            "Danger",
+          ],
+          correct: "Recycle",
+          Playaudio: "../static/Audios/signs_and_symbols/recycle.mp3",
+          maraoptions: [
+            "रिसायकल",
+            "विद्युत धोका",
+            "लाल सिग्नल - थांबा",
+            "धोका",
+          ],
+          correctm: "रिसायकल",
+          maraoaudio:
+            "../static/Audios/signs_and_symbols in marathi/recycle.mp3",
+        },
+      ];
+
+      var currentDataIndex = 0;
+      const gameImage = document.getElementById("imgv");
+      const name = document.getElementById("name");
+      var isMarathiLanguage;
+
+      englishRadio.addEventListener("click", function () {
+        isMarathiLanguage = false;
+        updateImage();
+      });
+      // Add an event listener to the Marathi radio button
+      marathiRadio.addEventListener("click", function () {
+        isMarathiLanguage = true;
+        updateImage();
+      });
+
+      function updateImage() {
+        const currentData = gameData[currentDataIndex];
+        if (isMarathiLanguage) {
+          gameImage.src = currentData.imageUrl;
+          name.innerHTML = currentData.correctm;
+        } else {
+          gameImage.src = currentData.imageUrl;
+          name.innerHTML = currentData.correct;
+        }
+      }
+
+      gameImage.addEventListener("click", function () {
+        if (isMarathiLanguage) {
+          sound1.src = gameData[currentDataIndex].maraoaudio;
+        } else {
+          sound1.src = gameData[currentDataIndex].Playaudio;
+        }
+        document.getElementById("sound1").play();
+      });
+
+      next.addEventListener("click", function () {
+        if(currentDataIndex>8){
+          window.location="../levels/SignsSymbols";
+        }
+        currentDataIndex += 1;
+        updateImage();
+      });
+
+      prev.addEventListener("click", function () {
+        currentDataIndex -= 1;
+        updateImage();
+      });
+    </script>
+  </body>
+</html>

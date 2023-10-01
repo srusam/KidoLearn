@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Level 2 D_L_O in Marathi</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/level2.css" />
+  </head>
+  <style>
+    .placeholder {
+      background-color: #ffffff;
+      height: 500px;
+      width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      filter: saturate(200%);
+    }
+
+    button {
+      background: linear-gradient(#77d2ff, #ee9de7);
+      border-radius: 5px;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .radio-buttons {
+      position: absolute;
+      bottom: 650px;
+      left: 150px;
+    }
+
+    /* Styling for radio buttons */
+    input[type="radio"] {
+      /* Hide the default radio button */
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      /* Add custom styles */
+      display: inline-block;
+      position: relative;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border: 2px solid #333;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    /* Styling for the checked state */
+    input[type="radio"]:checked::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    /* Styling for the hover state */
+    input[type="radio"]:hover {
+      border-color: #555;
+    }
+
+    /* Styling for the focus state */
+    input[type="radio"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+  <body
+    style="
+      background-color: #93f2f7;
+      background-image: url(../static/BGimage.webp);
+      background-repeat: no-repeat;
+      background-size: cover;
+    "
+  >
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-0 translate-middle">
+        <img
+          id="back"
+          src="../static/back.png"
+          onclick="location.href='/levels/DailyLifeObjects'"
+          style="
+            width: 80px;
+            height: 80px;
+            margin-top: 42px;
+            margin-left: 180px;
+            cursor: pointer;
+          "
+        />
+        <img
+          id="home"
+          src="../static/home.png"
+          onclick="location.href='/'"
+          style="width: 85px; height: 85px; margin-top: 38px; cursor: pointer"
+        />
+      </div>
+
+      <div class="position-absolute top-0 start-100 translate-middle">
+        <img
+          id="back"
+          src="../static/options.png"
+          onclick="location.href='/options'"
+          style="
+            width: 80px;
+            height: 80px;
+            margin-top: 41px;
+            margin-right: 100px;
+            cursor: pointer;
+          "
+        />
+      </div>
+    </div>
+    <!-- <div class="d-flex justify-content-center my-4">
+      <img id="game-image" src="" width="50%" alt="img" />
+    </div> -->
+    <div class="image-container">
+      <div class="placeholder d-flex justify-content-center my-4 mx-auto">
+        <img id="game-image" src="" alt="Example Image" />
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- buttons -->
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col">
+          <audio
+            id="sound1"
+            src="../static/Audios/Potato.mp3"
+            preload="auto"
+          ></audio>
+          <button
+            id="option1"
+            type="button"
+            class="btn btn-secondary btn-lg mb-3 mx-5"
+            style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            "
+          >
+            Potato
+          </button>
+
+          <audio id="sound2" src="" preload="auto"></audio>
+          <button
+            id="option2"
+            type="button"
+            class="btn btn-secondary btn-lg mb-3 mx-5"
+            onclick=""
+            style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            "
+          >
+            Raddish
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col">
+          <audio id="sound3" src="../static/Audios/Incorrect1.mp3"></audio>
+          <button
+            id="option3"
+            type="button"
+            class="btn btn-primary btn-lg mx-5"
+            style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            "
+          >
+            Carrot
+          </button>
+
+          <audio id="sound4" src="../static/Audios/Incorrect.mp3"></audio>
+          <button
+            id="option4"
+            type="button"
+            class="btn btn-primary btn-lg mx-5"
+            style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            "
+          >
+            Tomato
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container"
+      style="color: rgb(233, 29, 63); font-weight: bold; font-size: 30px"
+    >
+      <div class="radio-buttons" style="size: 30px">
+        <div class="form-check form-check-block">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="englishRadio"
+            value="english"
+            checked
+            style="top: 5px"
+          />
+          <label class="form-check-label" for="englishRadio">English</label>
+        </div>
+        <div class="form-check form-check-block">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="marathiRadio"
+            value="marathi"
+            style="top: 5px"
+          />
+          <label class="form-check-label" for="marathiRadio">मराठी</label>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const gameData = [
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/chair.jpg",
+          options: ["Sofa", "Chair", "Table", "Comb"],
+          correct: "Chair",
+          Playaudio: "../static/Audios/daily_life_obj/chair.mp3",
+          maraoptions: ["सोफा", "खुर्ची", "मेज", "कंगवा"],
+          correctm: "खुर्ची",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/खुर्ची.mp3",
+        },
+
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/tooth_brush.jpg",
+          options: ["Pencil", "Eraser", "Bottle", "Tooth Brush"],
+          correct: "Tooth Brush",
+          Playaudio: "../static/Audios/daily_life_obj/tooth_brush.mp3",
+          maraoptions: [
+            "पेन्सिल",
+            "खोडरबर",
+            "पाण्याची बाटली",
+            "दात घासण्याचा ब्रश",
+          ],
+          correctm: "दात घासण्याचा ब्रश",
+          maraoaudio:
+            "../static/Audios/daily_life_obj in marathi/daat gasranchya brush.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/clock.png",
+          options: ["Clock", "Sofa", "Umbrella", "Table"],
+          correct: "Clock",
+          Playaudio: "../static/Audios/daily_life_obj/clock.mp3",
+          maraoptions: ["घड्याळ", "सोफा", "छत्री", "मेज"],
+          correctm: "घड्याळ",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/घड्याळ.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/table.jpg",
+          options: ["Sofa", "Chair", "Table", "Comb"],
+          correct: "Table",
+          Playaudio: "../static/Audios/daily_life_obj/table.mp3",
+          maraoptions: ["सोफा", "खुर्ची", "मेज", "कंगवा"],
+          correctm: "मेज",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/मेज.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/pencil.jpg",
+          options: ["Pencil", "Eraser", "Bottle", "Tooth Brush"],
+          correct: "Pencil",
+          Playaudio: "../static/Audios/daily_life_obj/pencil.mp3",
+          maraoptions: [
+            "पेन्सिल",
+            "खोडरबर",
+            "पाण्याची बाटली",
+            "दात घासण्याचा ब्रश",
+          ],
+          correctm: "पेन्सिल",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/pencil.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/umbrella.png",
+          options: ["Clock", "Sofa", "Umbrella", "Table"],
+          correct: "Umbrella",
+          Playaudio: "../static/Audios/daily_life_obj/umbrella.mp3",
+          maraoptions: ["घड्याळ", "सोफा", "छत्री", "मेज"],
+          correctm: "छत्री",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/chatri.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/eraser.png",
+          options: ["Pencil", "Eraser", "Bottle", "Tooth Brush"],
+          correct: "Eraser",
+          Playaudio: "../static/Audios/daily_life_obj/eraser.mp3",
+          maraoptions: [
+            "पेन्सिल",
+            "खोडरबर",
+            "पाण्याची बाटली",
+            "दात घासण्याचा ब्रश",
+          ],
+          correctm: "खोडरबर",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/खोडरबर.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/sofa.jpg",
+          options: ["Sofa", "Chair", "Table", "Comb"],
+          correct: "Sofa",
+          Playaudio: "../static/Audios/daily_life_obj/sofa.mp3",
+          maraoptions: ["सोफा", "खुर्ची", "मेज", "कंगवा"],
+          correctm: "सोफा",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/सोफा.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/comb.jpg",
+          options: ["Tooth Brush", "Table", "Comb", "Chair"],
+          correct: "Comb",
+          Playaudio: "../static/Audios/daily_life_obj/comb.mp3",
+          maraoptions: ["दात घासण्याचा ब्रश", "मेज", "कंगवा", "खुर्ची"],
+          correctm: "कंगवा",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/कंगवा.mp3",
+        },
+        {
+          imageUrl: "../static/DAILY_LIFE_OBJECTS/water_bottle.jpg",
+          options: ["Pencil", "Eraser", "Bottle", "Tooth Brush"],
+          correct: "Bottle",
+          Playaudio: "../static/Audios/daily_life_obj/water_bottle.mp3",
+          maraoptions: ["पेन्सिल", "खोडरबर", "बाटली", "दात घासण्याचा ब्रश"],
+          correctm: "बाटली",
+          maraoaudio: "../static/Audios/daily_life_obj in marathi/batli.mp3",
+        },
+      ];
+
+      setTimeout(updateImageAndOptions);
+      let currentDataIndex = 0;
+      var isMarathiLanguage;
+
+      var score = 0;
+
+      console.log(score);
+
+      //all functions
+      function check() {
+        if (currentDataIndex != gameData.length - 1) {
+          currentDataIndex = currentDataIndex + 1;
+          setTimeout(updateImageAndOptions, 1000);
+        } else {
+          localStorage.setItem("Score", score);
+          var LScore = parseInt(localStorage.getItem("Score"));
+          console.log(LScore);
+          if (LScore < 60) {
+            window.location.href = "/lost";
+          } else window.location.href = "/win";
+        }
+      }
+
+      function increaseProgress() {
+        var progressBar = document.getElementById("progress-bar");
+        var currentHeight = progressBar.offsetHeight;
+        var newHeight = currentHeight + 50;
+        if (newHeight > 500) {
+          newHeight = 0;
+        }
+        progressBar.style.height = newHeight + "px";
+      }
+
+      const gameImage = document.getElementById("game-image");
+      const option1Button = document.getElementById("option1");
+      const option2Button = document.getElementById("option2");
+      const option3Button = document.getElementById("option3");
+      const option4Button = document.getElementById("option4");
+
+      function updateImageAndOptions() {
+        const currentData = gameData[currentDataIndex];
+        gameImage.src = currentData.imageUrl;
+        if (isMarathiLanguage) {
+          option1Button.innerHTML = currentData.maraoptions[0];
+          option2Button.innerHTML = currentData.maraoptions[1];
+          option3Button.innerHTML = currentData.maraoptions[2];
+          option4Button.innerHTML = currentData.maraoptions[3];
+        } else {
+          option1Button.innerHTML = currentData.options[0];
+          option2Button.innerHTML = currentData.options[1];
+          option3Button.innerHTML = currentData.options[2];
+          option4Button.innerHTML = currentData.options[3];
+        }
+      }
+
+      englishRadio.addEventListener("click", function () {
+        isMarathiLanguage = false;
+        updateImageAndOptions();
+      });
+      // Add an event listener to the Marathi radio button
+      marathiRadio.addEventListener("click", function () {
+        isMarathiLanguage = true;
+        updateImageAndOptions();
+      });
+
+      option1Button.addEventListener("click", function () {
+        if (
+          option1Button.innerHTML == gameData[currentDataIndex].correct ||
+          option1Button.innerHTML == gameData[currentDataIndex].correctm
+        ) {
+          // If the selected option is correct, play the Marathi audio and update the score
+          if (isMarathiLanguage) {
+            sound1.src = gameData[currentDataIndex].maraoaudio;
+          } else {
+            sound1.src = gameData[currentDataIndex].Playaudio;
+          }
+          sound2.src = "../static/Audios/correct_music.mp3";
+          sound1.play();
+          setTimeout(() => {
+            sound2.play();
+          }, sound1.duration * 8000);
+          score += 10;
+          console.log(score);
+          increaseProgress();
+        } else {
+          if (isMarathiLanguage) {
+            sound1.src = "../static/Audios/incorrect_music.mp3";
+          } else {
+            sound1.src = "../static/Audios/incorrect_music.mp3";
+          }
+          document.getElementById("sound1").play();
+        }
+        if (currentDataIndex == gameData.length - 1) {
+          setTimeout(() => {
+            check();
+          }, 4000);
+        } else check();
+        setTimeout(() => {
+          updateImageAndOptions();
+        }, 6000);
+      });
+
+      option2Button.addEventListener("click", function () {
+        if (
+          option2Button.innerHTML == gameData[currentDataIndex].correct ||
+          option2Button.innerHTML == gameData[currentDataIndex].correctm
+        ) {
+          // If the selected option is correct, play the Marathi audio and update the score
+          if (isMarathiLanguage) {
+            sound2.src = gameData[currentDataIndex].maraoaudio;
+          } else {
+            sound2.src = gameData[currentDataIndex].Playaudio;
+          }
+          sound3.src = "../static/Audios/correct_music.mp3";
+          sound2.play();
+          setTimeout(() => {
+            sound3.play();
+          }, sound2.duration * 8000);
+          document.getElementById("sound2").play();
+          score += 10;
+          console.log(score);
+          increaseProgress();
+        } else {
+          if (isMarathiLanguage) {
+            sound2.src = "../static/Audios/incorrect_music.mp3";
+          } else {
+            sound2.src = "../static/Audios/incorrect_music.mp3";
+          }
+          document.getElementById("sound2").play();
+        }
+        if (currentDataIndex == gameData.length - 1) {
+          setTimeout(() => {
+            check();
+          }, 4000);
+        } else check();
+        setTimeout(() => {
+          updateImageAndOptions();
+        }, 6000);
+      });
+
+      option3Button.addEventListener("click", function () {
+        if (
+          option3Button.innerHTML == gameData[currentDataIndex].correct ||
+          option3Button.innerHTML == gameData[currentDataIndex].correctm
+        ) {
+          // If the selected option is correct, play the Marathi audio and update the score
+          if (isMarathiLanguage) {
+            sound3.src = gameData[currentDataIndex].maraoaudio;
+          } else {
+            sound3.src = gameData[currentDataIndex].Playaudio;
+          }
+          sound4.src = "../static/Audios/correct_music.mp3";
+          sound3.play();
+          setTimeout(() => {
+            sound4.play();
+          }, sound3.duration * 8000);
+          document.getElementById("sound3").play();
+          score += 10;
+          console.log(score);
+          increaseProgress();
+        } else {
+          if (isMarathiLanguage) {
+            sound3.src = "../static/Audios/incorrect_music.mp3";
+          } else {
+            // If the selected option is incorrect, play the incorrect audio
+            sound3.src = "../static/Audios/incorrect_music.mp3";
+          }
+          document.getElementById("sound3").play();
+        }
+        if (currentDataIndex == gameData.length - 1) {
+          setTimeout(() => {
+            check();
+          }, 4000);
+        } else check();
+        setTimeout(() => {
+          updateImageAndOptions();
+        }, 6000);
+      });
+
+      option4Button.addEventListener("click", function () {
+        if (
+          option4Button.innerHTML == gameData[currentDataIndex].correct ||
+          option4Button.innerHTML == gameData[currentDataIndex].correctm
+        ) {
+          // If the selected option is correct, play the Marathi audio and update the score
+          if (isMarathiLanguage) {
+            sound3.src = gameData[currentDataIndex].maraoaudio;
+          } else {
+            sound3.src = gameData[currentDataIndex].Playaudio;
+          }
+          sound4.src = "../static/Audios/correct_music.mp3";
+          sound3.play();
+          setTimeout(() => {
+            sound4.play();
+          }, sound3.duration * 8000);
+          document.getElementById("sound4").play();
+          score += 10;
+          console.log(score);
+          increaseProgress();
+        } else {
+          if (isMarathiLanguage) {
+            sound4.src = "../static/Audios/incorrect_music.mp3";
+          } else {
+            // If the selected option is incorrect, play the incorrect audio
+            sound4.src = "../static/Audios/incorrect_music.mp3";
+          }
+          document.getElementById("sound4").play();
+        }
+        if (currentDataIndex == gameData.length - 1) {
+          setTimeout(() => {
+            check();
+          }, 4000);
+        } else check();
+        setTimeout(() => {
+          updateImageAndOptions();
+        }, 6000);
+      });
+    </script>
+  </body>
+</html>

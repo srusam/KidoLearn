@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorry Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .bgd {
+        position: relative;
+        width: 1707px;
+        height: 809px;
+        background-color: rgba(47, 243, 255, 0.46);
+      }
+
+      .heading {
+        position: absolute;
+        width: 1535px;
+        height: 200px;
+        font-family: "Hanuman";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 422px;
+        text-align: center;
+        color: #000000;
+      }
+
+      .hdh {
+        position: absolute;
+        width: 790px;
+        height: 135px;
+        left: 370px;
+        top: 70px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 37px;
+        line-height: 45px;
+        text-align: center;
+
+        color: #000000;
+      }
+
+      .f1 {
+        position: absolute;
+        width: 394px;
+        height: 250px;
+        left: -20px;
+        top: 125px;
+        background: url(/static/f1.png);
+      }
+
+      .f2 {
+        position: absolute;
+        width: 394px;
+        height: 250px;
+        left: 370px;
+        top: 125px;
+        background: url(/static/f2.png);
+      }
+
+      .f3 {
+        position: absolute;
+        width: 394px;
+        height: 250px;
+        left: 760px;
+        top: 125px;
+        background: url(/static/f3.png);
+      }
+
+      .f4 {
+        position: absolute;
+        width: 380px;
+        height: 250px;
+        left: 1150px;
+        top: 125px;
+        background: url(/static/f4.png);
+      }
+
+      .ys {
+        position: absolute;
+        width: 356px;
+        height: 88px;
+        left: 580px;
+        top: 300px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 37px;
+        line-height: 63px;
+        text-align: center;
+        color: #000000;
+      }
+
+      .redbox {
+        position: absolute;
+        width: 254px;
+        height: 60px;
+        left: 630px;
+        top: 350px;
+        text-align: center;
+        background: #ee1d1d;
+        color: white;
+      }
+
+      .Star1 {
+        position: absolute;
+        width: 245px;
+        height: 103px;
+        left: 635px;
+        top: 417px;
+        background: url(/static/Star1.png);
+      }
+
+      .Girl {
+        position: absolute;
+        width: 376px;
+        height: 329px;
+        left: -14px;
+        top: 400px;
+        background: url(/static/Girl.png);
+      }
+
+      .text {
+        position: absolute;
+        width: 542px;
+        height: 72px;
+        left: 490px;
+        top: 550px;
+        font-family: "Indie Flower";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 51px;
+        line-height: 63px;
+        text-align: center;
+        color: #000000;
+      }
+
+      .button1 {
+        position: absolute;
+        left: 720px;
+        top: 620px;
+      }
+
+      .button2 {
+        position: absolute;
+        left: 1440px;
+        top: 600px;
+        background: #041adf;
+      }
+
+      .button3 {
+        position: absolute;
+        left: 1450px;
+        top: 670px;
+        background: #041adf;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bgd">
+      <div class="heading">
+        <h1>Oops ! Sorry...</h1>
+      </div>
+      <div class="hdh">
+        <h2>You have not completed this level.</h2>
+        <h2>But, Don't worry !</h2>
+        <h2>You can try again.</h2>
+      </div>
+      <div class="f1"></div>
+      <div class="f2"></div>
+      <div class="f3"></div>
+      <div class="f4"></div>
+      <div class="ys">
+        <h2>Your Score</h2>
+      </div>
+      <div class="redbox">
+        <pre> <h4 id="score">myscore</h4></pre>
+      </div>
+      <div class="Star1"></div>
+      <div class="Girl"></div>
+      <div class="text">
+        <h3>Try Again. Good Luck !</h3>
+      </div>
+      <div class="button1">
+        <a
+          class="btn btn-primary btn-lg"
+          href="/SignsSymbolshindi/level2"
+          role="button"
+          >Retry</a
+        >
+      </div>
+      <div class="button2">
+        <button type="button" class="btn btn-primary btn-lg">Menu</button>
+      </div>
+      <div class="button3">
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='./'">Exit</button>
+      </div>
+    </div>
+    <script>
+      var currscore = localStorage.getItem("Score");
+      document.getElementById("score").innerHTML = currscore;
+    </script>
+  </body>
+</html>

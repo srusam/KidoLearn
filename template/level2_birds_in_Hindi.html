@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 2 Birds in Hindi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../static/level2.css">
+</head>
+<style>
+  .placeholder {
+    background-color: #ffffff;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    filter: saturate(200%);
+  }
+
+  button {
+    background: linear-gradient(#77d2ff, #ee9de7);
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .radio-buttons {
+    position: absolute;
+    bottom: 650px;
+    left: 150px;
+  }
+
+  /* Styling for radio buttons */
+  input[type="radio"] {
+    /* Hide the default radio button */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Add custom styles */
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  /* Styling for the checked state */
+  input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  /* Styling for the hover state */
+  input[type="radio"]:hover {
+    border-color: #555;
+  }
+
+  /* Styling for the focus state */
+  input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+<body style="
+      background-color: #93f2f7;
+      background-image: url(../static/BGimage.webp);
+      background-repeat: no-repeat;
+      background-size: cover;
+    ">
+  <!-- <div class="d-flex justify-content-center my-4">
+      <img id="game-image" src="" width="50%" alt="img" />
+    </div> -->
+  <div class="position-relative">
+    <div class="position-absolute top-0 start-0 translate-middle">
+      <img id="back" src="../static/back.png" onclick="location.href='/levels/birds'" style="
+            width: 80px;
+            height: 80px;
+            margin-top: 42px;
+            margin-left: 180px;
+            cursor: pointer;
+          " />
+      <img id="home" src="../static/home.png" onclick="location.href='/'"
+        style="width: 85px; height: 85px; margin-top: 38px; cursor: pointer" />
+    </div>
+
+    <div class="position-absolute top-0 start-100 translate-middle">
+      <img id="back" src="../static/options.png" onclick="location.href='/options'" style="
+            width: 80px;
+            height: 80px;
+            margin-top: 41px;
+            margin-right: 100px;
+            cursor: pointer;
+          " />
+    </div>
+  </div>
+  <div class="image-container">
+    <div class="placeholder d-flex justify-content-center my-4 mx-auto">
+      <img id="game-image" src="" alt="Example Image" />
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- buttons -->
+  <div class="container text-center mt-5">
+    <div class="row">
+      <div class="col">
+        <audio id="sound1" src="../static/Audios/Potato.mp3" preload="auto"></audio>
+        <button id="option1" type="button" class="btn btn-secondary btn-lg mb-3 mx-5" style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            ">
+          Potato
+        </button>
+
+        <audio id="sound2" src="" preload="auto"></audio>
+        <button id="option2" type="button" class="btn btn-secondary btn-lg mb-3 mx-5" onclick="" style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            ">
+          Raddish
+        </button>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col">
+        <audio id="sound3" src="../static/Audios/Incorrect1.mp3"></audio>
+        <button id="option3" type="button" class="btn btn-primary btn-lg mx-5" style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            ">
+          Carrot
+        </button>
+
+        <audio id="sound4" src="../static/Audios/Incorrect.mp3"></audio>
+        <button id="option4" type="button" class="btn btn-primary btn-lg mx-5" style="
+              width: 30%;
+              background-color: #d9d9d9;
+              color: black;
+              border: 2px solid black;
+            ">
+          Tomato
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="radio-buttons">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="language" id="englishRadio" value="english" />
+        <label class="form-check-label" for="englishRadio">English</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="language" id="marathiRadio" value="marathi" />
+        <label class="form-check-label" for="marathiRadio">हिंदी</label>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script>
+    const gameData = [
+      {
+        imageUrl: "../static/BIRDS/peacock.png",
+        options: ["Crow", "Pigeon", "Peacock", "Swan"],
+        correct: "Peacock",
+        Playaudio: "../static/Audios/Birds/peacock.mp3",
+        maraoptions: ["कौआ", "कबूतर", "मोर", "हंस"],
+        correctm: "मोर",
+        maraoaudio: "../static/Audios/birds in hindi/moor.mp3",
+      },
+
+      {
+        imageUrl: "../static/BIRDS/pigeon.jpg",
+        options: ["Duck", "Owl", "Parrot", "Pigeon"],
+        correct: "Pigeon",
+        Playaudio: "../static/Audios/Birds/pigeon.mp3",
+        maraoptions: ["बतख", "उल्लू", "तोता", "कबूतर"],
+        correctm: "कबूतर",
+        maraoaudio: "../static/Audios/birds in hindi/kabotar.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/crow.jpg",
+        options: ["Sparrow", "Crow", "Ostrich", "Eagle"],
+        correct: "Crow",
+        Playaudio: "../static/Audios/Birds/crow.mp3",
+        maraoptions: ["गौरैया", "कौआ", "शुतुरमुर्ग", "बाज़"],
+        correctm: "कौआ",
+        maraoaudio: "../static/Audios/birds in hindi/kauva.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/sparrow.jpg",
+        options: ["Swan", "Duck", "Sparrow", "Parrot"],
+        correct: "Sparrow",
+        Playaudio: "../static/Audios/Birds/sparrow.mp3",
+        maraoptions: ["हंस", "बतख", "गौरैया", "तोता"],
+        correctm: "गौरैया",
+        maraoaudio: "../static/Audios/birds in hindi/gaoraiya.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/duck.jpg",
+        options: ["Duck", "Pigeon", "Peacock", "Owl"],
+        correct: "Duck",
+        Playaudio: "../static/Audios/Birds/duck.mp3",
+        maraoptions: ["बतख", "कबूतर", "मोर", "उल्लू"],
+        correctm: "बतख",
+        maraoaudio: "../static/Audios/birds in hindi/batakh.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/swan.jpg",
+        options: ["Duck", "Crow", "Swan", "Sparrow"],
+        correct: "Swan",
+        Playaudio: "../static/Audios/Birds/swan.mp3",
+        maraoptions: ["बतख", "कौआ", "हंस", "गौरैया"],
+        correctm: "हंस",
+        maraoaudio: "../static/Audios/birds in hindi/hans.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/ostrich.jpg",
+        options: ["Ostrich", "Crow", "Pigeon", "Eagle"],
+        correct: "Ostrich",
+        Playaudio: "../static/Audios/Birds/ostrich.mp3",
+        maraoptions: ["शुतुरमुर्ग", "कौआ", "कबूतर", "बाज़"],
+        correctm: "शुतुरमुर्ग",
+        maraoaudio:
+          "../static/Audios/birds in hindi/shuturmurg.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/eagle.jpg",
+        options: ["Eagle", "Crow", "Ostrich", "Owl"],
+        correct: "Eagle",
+        Playaudio: "../static/Audios/Birds/eagle.mp3",
+        maraoptions: ["बाज़", "कौआ", "शुतुरमुर्ग", "उल्लू"],
+        correctm: "बाज़",
+        maraoaudio: "../static/Audios/birds in hindi/baaz.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/parrot.jpg",
+        options: ["Crow", "Pigeon", "Peacock", "Parrot"],
+        correct: "Parrot",
+        Playaudio: "../static/Audios/Birds/parrot.mp3",
+        maraoptions: ["कौआ", "कबूतर", "मोर", "तोता"],
+        correctm: "तोता",
+        maraoaudio: "../static/Audios/birds in hindi/toota.mp3",
+      },
+      {
+        imageUrl: "../static/BIRDS/owl.png",
+        options: ["Eagle", "Owl", "Ostrich", "Duck"],
+        correct: "Owl",
+        Playaudio: "../static/Audios/Birds/owl.mp3",
+        maraoptions: ["बाज़", "उल्लू", "शुतुरमुर्ग", "बतख"],
+        correctm: "उल्लू",
+        maraoaudio: "../static/Audios/birds in hindi/ullu.mp3",
+      },
+    ];
+
+    setTimeout(updateImageAndOptions);
+    let currentDataIndex = 0;
+    var isMarathiLanguage;
+
+    var score = 0;
+
+    console.log(score);
+
+    //all functions
+    function check() {
+      if (currentDataIndex != gameData.length - 1) {
+        currentDataIndex = currentDataIndex + 1;
+        setTimeout(updateImageAndOptions, 1000);
+      } else {
+        localStorage.setItem("Score", score);
+        var LScore = parseInt(localStorage.getItem("Score"));
+        console.log(LScore);
+        if (LScore < 60) {
+          window.location.href = "/lost";
+        } else window.location.href = "/win";
+      }
+    }
+
+    const gameImage = document.getElementById("game-image");
+    const option1Button = document.getElementById("option1");
+    const option2Button = document.getElementById("option2");
+    const option3Button = document.getElementById("option3");
+    const option4Button = document.getElementById("option4");
+
+    function updateImageAndOptions() {
+      const currentData = gameData[currentDataIndex];
+      gameImage.src = currentData.imageUrl;
+      if (isMarathiLanguage) {
+        option1Button.innerHTML = currentData.maraoptions[0];
+        option2Button.innerHTML = currentData.maraoptions[1];
+        option3Button.innerHTML = currentData.maraoptions[2];
+        option4Button.innerHTML = currentData.maraoptions[3];
+      } else {
+        option1Button.innerHTML = currentData.options[0];
+        option2Button.innerHTML = currentData.options[1];
+        option3Button.innerHTML = currentData.options[2];
+        option4Button.innerHTML = currentData.options[3];
+      }
+    }
+
+    englishRadio.addEventListener("click", function () {
+      isMarathiLanguage = false;
+      updateImageAndOptions();
+    });
+    // Add an event listener to the Marathi radio button
+    marathiRadio.addEventListener("click", function () {
+      isMarathiLanguage = true;
+      updateImageAndOptions();
+    });
+
+    option1Button.addEventListener("click", function () {
+      if (
+        option1Button.innerHTML == gameData[currentDataIndex].correct ||
+        option1Button.innerHTML == gameData[currentDataIndex].correctm
+      ) {
+        // If the selected option is correct, play the Marathi audio and update the score
+        if (isMarathiLanguage) {
+          sound1.src = gameData[currentDataIndex].maraoaudio;
+        } else {
+          sound1.src = gameData[currentDataIndex].Playaudio;
+        }
+        document.getElementById("sound1").play();
+        score += 10;
+        console.log(score);
+      } else {
+        if (isMarathiLanguage) {
+          sound1.src = "../static/Audios/galat.mp3";
+        } else {
+          // If the selected option is incorrect, play the incorrect audio
+          sound1.src = "../static/Audios/Incorrect1.mp3";
+        }
+        document.getElementById("sound1").play();
+      }
+      check();
+      setTimeout(() => {
+        updateImageAndOptions();
+      }, 4000);
+    });
+
+    option2Button.addEventListener("click", function () {
+      if (
+        option2Button.innerHTML == gameData[currentDataIndex].correct ||
+        option2Button.innerHTML == gameData[currentDataIndex].correctm
+      ) {
+        // If the selected option is correct, play the Marathi audio and update the score
+        if (isMarathiLanguage) {
+          sound2.src = gameData[currentDataIndex].maraoaudio;
+        } else {
+          sound2.src = gameData[currentDataIndex].Playaudio;
+        }
+        document.getElementById("sound2").play();
+        score += 10;
+        console.log(score);
+      } else {
+        if (isMarathiLanguage) {
+          sound2.src = "../static/Audios/galat.mp3";
+        } else {
+          // If the selected option is incorrect, play the incorrect audio
+          sound2.src = "../static/Audios/Incorrect1.mp3";
+        }
+        document.getElementById("sound2").play();
+      }
+      check();
+      setTimeout(() => {
+        updateImageAndOptions();
+      }, 4000);
+    });
+
+    option3Button.addEventListener("click", function () {
+      if (
+        option3Button.innerHTML == gameData[currentDataIndex].correct ||
+        option3Button.innerHTML == gameData[currentDataIndex].correctm
+      ) {
+        // If the selected option is correct, play the Marathi audio and update the score
+        if (isMarathiLanguage) {
+          sound3.src = gameData[currentDataIndex].maraoaudio;
+        } else {
+          sound3.src = gameData[currentDataIndex].Playaudio;
+        }
+        document.getElementById("sound3").play();
+        score += 10;
+        console.log(score);
+      } else {
+        if (isMarathiLanguage) {
+          sound3.src = "../static/Audios/galat.mp3";
+        } else {
+          // If the selected option is incorrect, play the incorrect audio
+          sound3.src = "../static/Audios/Incorrect1.mp3";
+        }
+        document.getElementById("sound3").play();
+      }
+      check();
+      setTimeout(() => {
+        updateImageAndOptions();
+      }, 4000);
+    });
+
+    option4Button.addEventListener("click", function () {
+      if (
+        option4Button.innerHTML == gameData[currentDataIndex].correct ||
+        option4Button.innerHTML == gameData[currentDataIndex].correctm
+      ) {
+        // If the selected option is correct, play the Marathi audio and update the score
+        if (isMarathiLanguage) {
+          sound4.src = gameData[currentDataIndex].maraoaudio;
+        } else {
+          sound4.src = gameData[currentDataIndex].Playaudio;
+        }
+        document.getElementById("sound4").play();
+        score += 10;
+        console.log(score);
+      } else {
+        if (isMarathiLanguage) {
+          sound4.src = "../static/Audios/galat.mp3";
+        } else {
+          // If the selected option is incorrect, play the incorrect audio
+          sound4.src = "../static/Audios/Incorrect1.mp3";
+        }
+        document.getElementById("sound4").play();
+      }
+      check();
+      setTimeout(() => {
+        updateImageAndOptions();
+      }, 4000);
+    });
+  </script>
+</body>
+
+</html>

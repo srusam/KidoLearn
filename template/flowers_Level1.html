@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowers Level1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    .placeholder {
+    background-color: #ffffff;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    filter: saturate(300%);
+    cursor: pointer;
+  }
+
+  button {
+    background: linear-gradient(#77d2ff, #ee9de7);
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .radio-buttons {
+    position: absolute;
+    bottom: 650px;
+    left: 150px;
+  }
+
+  /* Styling for radio buttons */
+  input[type="radio"] {
+    /* Hide the default radio button */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Add custom styles */
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  /* Styling for the checked state */
+  input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  /* Styling for the hover state */
+  input[type="radio"]:hover {
+    border-color: #555;
+  }
+
+  /* Styling for the focus state */
+  input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+  </style>
+  <body>
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-0 translate-middle">
+        <img
+          id="back"
+          src="../static/back.png"
+          onclick="location.href='/levels/flowers'"
+          style="
+            width: 80px;
+            height: 80px;
+            margin-top: 42px;
+            margin-left: 180px;
+            cursor: pointer;
+          "
+        />
+        <img
+          id="home"
+          src="../static/home.png"
+          onclick="location.href='/'"
+          style="width: 85px; height: 85px; margin-top: 38px; cursor: pointer"
+        />
+      </div>
+    <div class="container text-center my-4">
+      <div class="row">
+        <h1 id="name" style="font-size: 100px; color:rgb(22, 102, 40)">Rose</h1>
+        <div class="placeholder d-flex justify-content-center my-4 mx-auto ">
+          <audio id="sound1" src="../static/Audios/flowers/rose.mp3"></audio>
+          <img
+            id="imgv"
+            src="../static/FLOWERS/rose.jpg"
+            alt="Example Image"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- right sidebar column -->
+          <button class="btn btn-primary btn-lg" id="prev" style="color: black;">PREV</button>
+        </div>
+        <div class="col-md-6">
+          <!-- right sidebar column -->
+          <button class="btn btn-primary btn-lg" id="next" style="color: black;">NEXT</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="radio-buttons">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="englishRadio"
+            value="english"
+          />
+          <label class="form-check-label" for="englishRadio">English</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="marathiRadio"
+            value="marathi"
+          />
+          <label class="form-check-label" for="marathiRadio">Marathi</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"></script> -->
+    <script>
+      const gameData = [
+      {
+        imageUrl: "../static/FLOWERS/rose.jpg",
+        options: ["Periwinkle", "Rose", "Mogra", "Lily"],
+        correct: "Rose",
+        Playaudio: "../static/Audios/flowers/rose.mp3",
+        maraoptions: ["सदाबहार","गुलाब","मोगरा","लिली"],
+        correctm: "गुलाब",
+        maraoaudio: "../static/Audios/flowers in marathi/gulab.mp3",
+      },
+
+      {
+        imageUrl: "../static/FLOWERS/sunflower.jpg",
+        options: ["Hibiscus", "Marigold", "Sunflower", "Jasmine"],
+        correct: "Sunflower",
+        Playaudio: "../static/Audios/flowers/sunflower.mp3",
+        maraoptions: ["जास्वंद", "झेंडू", "सुर्यफुल", "चमेली"],
+        correctm: "सुर्यफुल",
+        maraoaudio: "../static/Audios/flowers in marathi/suryafhul.mp3"
+      },
+      {
+        imageUrl: "../static/FLOWERS/lotus.jpg",
+        options: ["Daisy", "Mogra", "Marigold", "Lotus"],
+        correct: "Lotus",
+        Playaudio: "../static/Audios/flowers/lotus.mp3",
+        maraoptions: ["डेझी", "मोगरा", "झेंडू", "कमळ"],
+        correctm: "कमळ",
+        maraoaudio: "../static/Audios/flowers in marathi/kamal.mp3",
+      },
+      {
+        imageUrl: "../static/FLOWERS/hibiscus.jpg",
+        options: ["Hibiscus", "Sunflower", "Rose", "Periwinkle"],
+        correct: "Hibiscus",
+        Playaudio: "../static/Audios/flowers/hibiscus.mp3",
+        maraoptions: ["जास्वंद", "सुर्यफुल", "गुलाब", "सदाबहार"],
+        correctm: "जास्वंद",
+        maraoaudio: "../static/Audios/flowers in marathi/jaswand.mp3", 
+      },
+      {
+        imageUrl: "../static/FLOWERS/marigold.jpg",
+        options: ["Jasmine", "Marigold", "Lily", "Daisy"],
+        correct: "Marigold",
+        Playaudio: "../static/Audios/flowers/marigold.mp3",
+        maraoptions: ["चमेली", "झेंडू", "लिली", "डेझी"],
+        correctm: "झेंडू",
+        maraoaudio: "../static/Audios/flowers in marathi/jhendu.mp3",
+      },
+      {
+        imageUrl: "../static/FLOWERS/mogra.jpg",
+        options: ["Mogra", "Periwinkle", "Sunflower", "Jasmine"],
+        correct: "Mogra",
+        Playaudio: "../static/Audios/flowers/mogra.mp3",
+        maraoptions: ["मोगरा", "सदाबहार", "सुर्यफुल", "चमेली"],
+        correctm: "मोगरा",
+        maraoaudio: "../static/Audios/flowers in marathi/mogra.mp3",
+      },
+      {
+        imageUrl: "../static/FLOWERS/lily.jpg",
+        options: ["Daisy", "Lotus", "Lily", "Rose"],
+        correct: "Lily",
+        Playaudio: "../static/Audios/flowers/lily.mp3",
+        maraoptions: ["डेझी", "कमळ", "लिली", "गुलाब"],
+        correctm: "लिली",
+        maraoaudio: "../static/Audios/flowers in marathi/लिली.mp3", //problem
+      },
+      {
+        imageUrl: "../static/FLOWERS/daisy.jpg",
+        options: ["Marigold", "Mogra", "Daisy", "Jasmine"],
+        correct: "Daisy",
+        Playaudio: "../static/Audios/flowers/daisy.mp3",
+        maraoptions: ["झेंडू", "मोगरा", "डेझी", "चमेली"],
+        correctm: "डेझी",
+        maraoaudio: "../static/Audios/flowers in marathi/daije.mp3",
+      },
+      {
+        imageUrl: "../static/FLOWERS/jasmine.jpg",
+        options: ["Sunflower", "Jasmine", "Rose", "Mogra"],
+        correct: "Jasmine",
+        Playaudio: "../static/Audios/flowers/jasmine.mp3",
+        maraoptions: ["सुर्यफुल", "चमेली", "गुलाब", "मोगरा"],
+        correctm: "चमेली",
+        maraoaudio: "../static/Audios/flowers in marathi/chameli.mp3",
+      },
+      {
+        imageUrl: "../static/FLOWERS/periwinkle.jpg",
+        options: ["Periwinkle", "Marigold", "Lily", "Hibiscus"],
+        correct: "Periwinkle",
+        Playaudio: "../static/Audios/flowers/periwinkle.mp3",
+        maraoptions: ["सदाबहार", "झेंडू", "लिली", "जास्वंद"],
+        correctm: "सदाबहार",
+        maraoaudio: "../static/Audios/flowers in marathi/sadabahar.mp3",
+      },
+      ];
+
+      var currentDataIndex = 0;
+      const gameImage = document.getElementById("imgv");
+      const name = document.getElementById("name");
+      var isMarathiLanguage;
+
+    englishRadio.addEventListener("click", function () {
+      isMarathiLanguage = false;
+      updateImage();
+    });
+    // Add an event listener to the Marathi radio button
+    marathiRadio.addEventListener("click", function () {
+      isMarathiLanguage = true;
+      updateImage();
+    });
+
+      function updateImage() {
+        const currentData = gameData[currentDataIndex];
+        if(isMarathiLanguage){
+        gameImage.src = currentData.imageUrl;
+        name.innerHTML = currentData.correctm;
+        }
+        else{
+        gameImage.src = currentData.imageUrl;
+        name.innerHTML = currentData.correct;
+        }
+      }
+
+      gameImage.addEventListener("click", function () {
+        if(isMarathiLanguage){
+          sound1.src = gameData[currentDataIndex].maraoaudio;
+        }
+        else{
+        sound1.src = gameData[currentDataIndex].Playaudio;
+        }
+        document.getElementById("sound1").play();
+      });
+
+      next.addEventListener("click", function () {
+        currentDataIndex += 1;
+        updateImage();
+      });
+
+      prev.addEventListener("click", function () {
+        currentDataIndex -= 1;
+        updateImage();
+      });
+    </script>
+  </body>
+</html>

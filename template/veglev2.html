@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegetable Level1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    
+  </head>
+  <style>
+    .placeholder {
+    background-color: #ffffff;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    filter: saturate(300%);
+    cursor: pointer;
+  }
+
+  button {
+    background: linear-gradient(#77d2ff, #ee9de7);
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .radio-buttons {
+    position: absolute;
+    bottom: 650px;
+    left: 150px;
+  }
+
+  /* Styling for radio buttons */
+  input[type="radio"] {
+    /* Hide the default radio button */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Add custom styles */
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  /* Styling for the checked state */
+  input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  /* Styling for the hover state */
+  input[type="radio"]:hover {
+    border-color: #555;
+  }
+
+  /* Styling for the focus state */
+  input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+  </style>
+  <body>
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-0 translate-middle">
+        <img
+          id="back"
+          src="../static/back.png"
+          onclick="location.href='/levels/vegetables'"
+          style="
+            width: 80px;
+            height: 80px;
+            margin-top: 42px;
+            margin-left: 180px;
+            cursor: pointer;
+          "
+        />
+        <img
+          id="home"
+          src="../static/home.png"
+          onclick="location.href='/'"
+          style="width: 85px; height: 85px; margin-top: 38px; cursor: pointer"
+        />
+      </div>
+    <div class="container text-center my-4">
+      <div class="row">
+        <h1 id="name" style="font-size: 100px; color:rgb(22, 102, 40)">Potato</h1>
+        <div class="placeholder d-flex justify-content-center my-4 mx-auto ">
+          <audio id="sound1" src="../static/Audios/Potato.mp3"></audio>
+          <img
+            id="imgv"
+            src="../static/vegetables/potato.jpg"
+            alt="Example Image"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- right sidebar column -->
+          <button class="btn btn-primary btn-lg" id="prev" style="color: black;">PREV</button>
+        </div>
+        <div class="col-md-6">
+          <!-- right sidebar column -->
+          <button class="btn btn-primary btn-lg" id="next" style="color: black;">NEXT</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="radio-buttons">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="englishRadio"
+            value="english"
+          />
+          <label class="form-check-label" for="englishRadio">English</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="language"
+            id="marathiRadio"
+            value="marathi"
+          />
+          <label class="form-check-label" for="marathiRadio">Marathi</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"></script> -->
+    <script>
+      const gameData = [
+        {
+          imageUrl: "../static/vegetables/potato.jpg",
+          correct: "Potato",
+          correctm: "बटाटा",
+          maraoaudio: "../static/Audios/veges in marathi/batata.mp3",
+          Playaudio: "../static/Audios/Potato1.mp3",
+        },
+
+        {
+          imageUrl: "../static/vegetables/cauliflower.jpg",
+          correct: "Cauliflower",
+          Playaudio: "../static/Audios/CauliFlower.mp3",
+          correctm: "फुलकोबी",
+          maraoaudio: "../static/Audios/veges in marathi/phulakobi.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/Onion.jpg",
+          correct: "Onion",
+          Playaudio: "../static/Audios/Onion.mp3",
+          correctm: "कांदा",
+          maraoaudio: "../static/Audios/veges in marathi/kanda.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/bitter gourd.jpg",
+          correct: "Bitter Gourd",
+          Playaudio: "../static/Audios/BitterGourd.mp3",
+          correctm: "कारले",
+          maraoaudio: "../static/Audios/veges in marathi/karle.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/brinjal.jpg",
+          correct: "Brinjal",
+          Playaudio: "../static/Audios/brinjal.mp3",
+          correctm: "वांगी",
+          maraoaudio: "../static/Audios/veges in marathi/vange.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/carrot.jpg",
+          correct: "Carrot",
+          Playaudio: "../static/Audios/carrot.mp3",
+          correctm: "गाजर",
+          maraoaudio: "../static/Audios/veges in marathi/gajar.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/cabbage.jpg",
+          options: ["Brinjal", "Cabbage", "Cauliflower", "Carrot"],
+          correct: "Cabbage",
+          Playaudio: "../static/Audios/Cabbage.mp3",
+          maraoptions: ["वांगी", "कोबी", "फुलकोबी", "गाजर"],
+          correctm: "कोबी",
+          maraoaudio: "../static/Audios/veges in marathi/kobe.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/Capsicum final.jpg",
+          options: ["Capsicum", "Bitter Gourd", "Cauliflower", "Carrot"],
+          correct: "Capsicum",
+          Playaudio: "../static/Audios/Capsicum.mp3",
+          maraoptions: ["शिमला मिर्ची", "कारले", "फुलकोबी", "गाजर"],
+          correctm: "शिमला मिर्ची",
+          maraoaudio: "../static/Audios/veges in marathi/shimla mirchi.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/lady finger.jpg",
+          options: ["Brinjal", "Bitter Gourd", "Lady's Finger", "Carrot"],
+          correct: "Lady's Finger",
+          Playaudio: "../static/Audios/lady finger.mp3",
+          maraoptions: ["वांगी", "कारले", "भेंडी", "गाजर"],
+          correctm: "भेंडी",
+          maraoaudio: "../static/Audios/veges in marathi/bhindi.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/radish.jpg",
+          options: ["Brinjal", "Carrot", "Lady's Finger", "Radish"],
+          correct: "Radish",
+          Playaudio: "../static/Audios/radish.mp3",
+          maraoptions: ["वांगी", "गाजर", "भेंडी", "मुळा"],
+          correctm: "मुळा",
+          maraoaudio: "../static/Audios/veges in marathi/mura.mp3",
+        },
+        {
+          imageUrl: "../static/vegetables/spinach.jpg",
+          options: ["Lady's Finger", "Spinach", "Brinjal", "Radish"],
+          correct: "Spinach",
+          Playaudio: "../static/Audios/spinach.mp3",
+          maraoptions: ["भेंडी", "पालक", "वांगी", "मुळा"],
+          correctm: "पालक",
+          maraoaudio: "../static/Audios/veges in marathi/palak.mp3",
+        },
+      ];
+
+      var currentDataIndex = 0;
+      const gameImage = document.getElementById("imgv");
+      const name = document.getElementById("name");
+      var isMarathiLanguage;
+
+    englishRadio.addEventListener("click", function () {
+      isMarathiLanguage = false;
+      updateImage();
+    });
+    // Add an event listener to the Marathi radio button
+    marathiRadio.addEventListener("click", function () {
+      isMarathiLanguage = true;
+      updateImage();
+    });
+
+      function updateImage() {
+        const currentData = gameData[currentDataIndex];
+        if(isMarathiLanguage){
+        gameImage.src = currentData.imageUrl;
+        name.innerHTML = currentData.correctm;
+        }
+        else{
+        gameImage.src = currentData.imageUrl;
+        name.innerHTML = currentData.correct;
+        }
+      }
+
+      gameImage.addEventListener("click", function () {
+        if(isMarathiLanguage){
+          sound1.src = gameData[currentDataIndex].maraoaudio;
+        }
+        else{
+        sound1.src = gameData[currentDataIndex].Playaudio;
+        }
+        document.getElementById("sound1").play();
+      });
+
+      next.addEventListener("click", function () {
+        if(currentDataIndex>8){
+          window.location="../levels/vegetables";
+        }
+        currentDataIndex += 1;
+        updateImage();
+      });
+
+      prev.addEventListener("click", function () {
+        currentDataIndex -= 1;
+        updateImage();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+
+
+:root{
+    --blue-color:#F5F5F5;
+    --darkblue-color:#17157E;
+    --pink-color:#DF189B;
+    --grey-color:#D9D9D9;
+   --light-blue-color: #D3FDF8;
+}
+
+.images{
+    position: absolute;
+}
+
+.twokid{
+position: relative;
+width: 290px;
+height: 328px;
+left: -15px;
+top: -28px;
+}
+
+.rainbow{
+position: relative;
+width: 554px;
+height: 300px;
+left: 125px;
+top: -45px;
+}
+
+.sun{
+position: relative;
+width: 226px;
+height: 200px;
+left: 206px;
+top: -110px;
+}
+
+body{
+    background-color:#D3FDF8 ;
+}
+.center{
+    position: relative;
+    height: 40vh;
+    top:160px;
+}
+.kidolearn{
+position: absolute;
+left:30%;
+font-family: 'Galindo';
+font-style: normal;
+font-weight: 200;
+line-height: 0;
+align-items: center;
+text-align: center; 
+display: inline-block;
+}
+.kid{
+    font-size: 100px;
+    color:#17157E;
+}
+.kids{
+    position: absolute;
+    left:75px;
+    height: 180px;
+}
+.fun{
+    font-size: 40px ;
+    position: relative;
+    display:contents ;
+    color:#DF189B;
+    left:50%;
+    font-family:'Finger Paint' ;
+    
+}
+.bottom{
+    font-family: 'Freehand';
+    font-size: 40px;
+    display: inline;
+}
+.buttons{
+font-family: 'Gowun Batang';
+border:none;
+ position: relative;
+ top:30px;
+ width:150px;
+ height:70px;
+ /* padding:10px 10px 10px 10px; */
+ text-align: center;
+ font-size: 40px;
+}
+
+.buttons button :hover{
+ cursor:pointer;
+ background-color: #17157E;
+}
+
+
+@media(max-width: 858px){
+   
+.images{
+    display: none;
+}
+    
+}
+
+@media(max-width: 400px){
+    
+}

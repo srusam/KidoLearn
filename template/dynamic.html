@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #image-container{
+        width:200px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Dynamic Game Page</h1>
+    <div id="image-container">
+        <img id="game-image" width="500px" src="" alt="Game Image">
+    </div>
+    <div id="options-container">
+        <button id="option1">Option 1</button>
+        <button id="option2">Option 2</button>
+        <button id="option3">Option 3</button>
+        <button id="option4">Option 4</button>
+    </div>
+
+    <script>
+        const gameData = [
+            {
+                imageUrl: "https://m.media-amazon.com/images/I/61yXL70-RaL._SX679_.jpg",
+                options: ["Potato", "raddish", "carrot", "tomato"]
+            },
+            {
+                imageUrl: "https://m.media-amazon.com/images/I/81T2i55X4gL._SL1500_.jpg",
+                options: ["brinjal", "Onion", "cauliflower", "spinach"]
+            },
+            // Add more game data here
+        ];
+
+        let currentDataIndex = 0;
+
+        const gameImage = document.getElementById("game-image");
+        const option1Button = document.getElementById("option1");
+        const option2Button = document.getElementById("option2");
+        const option3Button = document.getElementById("option3");
+        const option4Button = document.getElementById("option4");
+
+        function updateImageAndOptions() {
+            const currentData = gameData[currentDataIndex];
+            gameImage.src = currentData.imageUrl;
+            option1Button.innerHTML = currentData.options[0];
+            option2Button.innerHTML = currentData.options[1];
+            option3Button.innerHTML = currentData.options[2];
+            option4Button.innerHTML = currentData.options[3];
+        }
+
+        option1Button.addEventListener("click", function () {
+            currentDataIndex = (currentDataIndex + 1) % gameData.length;
+            updateImageAndOptions();
+        });
+
+        option2Button.addEventListener("click", function () {
+            currentDataIndex = (currentDataIndex + 1) % gameData.length;
+            updateImageAndOptions();
+        });
+
+        option3Button.addEventListener("click", function () {
+            currentDataIndex = (currentDataIndex + 1) % gameData.length;
+            updateImageAndOptions();
+        });
+
+        option4Button.addEventListener("click", function () {
+            currentDataIndex = (currentDataIndex + 1) % gameData.length;
+            updateImageAndOptions();
+        });
+
+        updateImageAndOptions();
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- onclick="document.getElementById('sound1').play();  -->
+<!-- // setColor('button', '#101010');" -->
